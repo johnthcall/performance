@@ -9,40 +9,6 @@ using MicroBenchmarks;
 
 namespace MicroBenchmarks.runtime
 {
-
-    [Serializable]
-    public sealed class KeyValuePairComparer<TKey, TValue> : Comparer<KeyValuePair<TKey, TValue>>
-    {
-        internal IComparer<TKey> keyComparer; // Do not rename (binary serialization)
-
-        public KeyValuePairComparer(IComparer<TKey> keyComparer)
-        {
-            if (keyComparer == null)
-            {
-                this.keyComparer = Comparer<TKey>.Default;
-            }
-            else
-            {
-                this.keyComparer = keyComparer;
-            }
-        }
-
-        public override bool Equals(object obj)
-        {
-            return obj is KeyValuePairComparer<TKey, TValue> otherComparer && otherComparer.keyComparer == this.keyComparer;
-        }
-
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
-
-        public override int Compare(KeyValuePair<TKey, TValue> x, KeyValuePair<TKey, TValue> y)
-        {
-            return keyComparer.Compare(x.Key, y.Key);
-        }
-    }
-
     [BenchmarkCategory(Categories.Libraries, Categories.Collections, Categories.GenericCollections)]
     public class DictionaryCopy
     {
