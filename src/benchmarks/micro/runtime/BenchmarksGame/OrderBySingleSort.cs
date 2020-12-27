@@ -42,49 +42,49 @@ namespace MicroBenchmarks.runtime
         }
 
         [Benchmark]
-        public List<string> StringList()
+        public List<string> StringToList()
         {
             return Strings.OrderBy(s => s).ToList();
         }
 
         [Benchmark]
-        public string[] StringArray()
+        public string[] StringToArray()
         {
             return Strings.OrderBy(s => s).ToArray();
         }
 
         [Benchmark]
-        public List<int> IntList()
+        public List<int> IntToList()
         {
             return Ints.OrderBy(s => s).ToList();
         }
 
         [Benchmark]
-        public int[] IntArray()
+        public int[] IntToArray()
         {
             return Ints.OrderBy(s => s).ToArray();
         }
 
         [Benchmark]
-        public List<long> LongList()
+        public List<long> LongToList()
         {
             return Longs.OrderBy(s => s).ToList();
         }
 
         [Benchmark]
-        public long[] LongArray()
+        public long[] LongToArray()
         {
             return Longs.OrderBy(s => s).ToArray();
         }
 
         [Benchmark]
-        public List<byte> ByteList()
+        public List<byte> ByteToList()
         {
             return Bytes.OrderBy(s => s).ToList();
         }
 
         [Benchmark]
-        public byte[] ByteArray()
+        public byte[] ByteToArray()
         {
             return Bytes.OrderBy(s => s).ToArray();
         }
